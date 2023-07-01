@@ -71,8 +71,13 @@ const RecipeModal = ({ isOpen, onClose, recipe }) => {
     }));
   };
 
+  const cancelHandler = () => {
+    setRecipeDetails(recipe || initialState);
+    onClose();
+  };
+
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size="lg" m="2">
+    <Modal isOpen={isOpen} onClose={cancelHandler} size="lg" m="2">
       <ModalOverlay />
       <ModalContent w="90%">
         <ModalHeader>{recipe ? "Edit Recipe" : "Create Recipe"}</ModalHeader>
