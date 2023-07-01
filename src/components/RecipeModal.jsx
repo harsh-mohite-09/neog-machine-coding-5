@@ -32,7 +32,15 @@ const RecipeModal = ({ isOpen, onClose, recipe }) => {
   const createRecipeHandler = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    dispatch({ type: "ADD_RECIPE", payload: { ...recipeDetails, id: uuid() } });
+    if (recipe) {
+      dispatch({ type: "EDIT_RECIPE", payload: recipeDetails });
+    } else {
+      dispatch({
+        type: "ADD_RECIPE",
+        payload: { ...recipeDetails, id: uuid() },
+      });
+    }
+
     onClose();
     setRecipeDetails(initialState);
   };

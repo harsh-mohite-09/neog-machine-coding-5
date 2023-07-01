@@ -7,7 +7,7 @@ const AppContext = createContext({
 });
 
 const initialState = {
-  recipes: recipes,
+  recipes: JSON.parse(localStorage.getItem("recipes")) || recipes,
   filters: {
     search: "",
     category: "name",
@@ -60,6 +60,8 @@ const reducer = (state, action) => {
 
 const AppContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  localStorage.setItem("recipes", JSON.stringify(state.recipes));
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>
