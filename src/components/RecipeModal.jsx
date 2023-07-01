@@ -104,7 +104,7 @@ const RecipeModal = ({ isOpen, onClose, recipe }) => {
                 <FormLabel>{`Ingredients (Enter comma separated values)`}</FormLabel>
                 <Input
                   onChange={ingredientsInputHandler}
-                  value={recipeDetails.ingredients.join(", ")}
+                  value={recipeDetails.ingredients.join(",")}
                 />
               </FormControl>
               <FormControl isRequired>
