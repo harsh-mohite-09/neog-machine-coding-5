@@ -32,7 +32,7 @@ const RecipeCard = ({ recipe }) => {
           <Flex position="relative">
             <Image
               src={recipe.img}
-              alt="Green double couch with wooden legs"
+              alt={recipe.name}
               borderRadius="lg"
               h="15rem"
               w="15rem"
